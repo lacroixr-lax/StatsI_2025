@@ -35,6 +35,8 @@ var(df$income) # Variability, variance
 sd(df$income) # Variability, standard deviation
 sd(df$income)/sqrt(length((df$income))) # Variability, standard **error**
 
+plot(density(df$income))
+
 # Step by step
 df$income
 length((df$income))
@@ -43,7 +45,9 @@ sqrt(19)
 sd(df$income)/sqrt(length((df$income)))
 
 ### Education ###
-hist(df$edu) # Distribution
+hist(df$edu,
+     main = "",
+     xlab = "") # Distributiond
 mean(df$edu) # Central tendency, mean
 var(df$edu) # Variability, variance
 sd(df$edu) # Variability, standard deviation
@@ -75,10 +79,10 @@ sd(df$income)/sqrt(length((df$income))) # Standard error
 # 95% of observations lie within +/-1.96 (approximately 2)
 # standard errors of point estimate 
 
-# Lower bound
+# Upper bound
 upper_95 = (mean(df$income))+(1.96)*(sd(df$income)/sqrt(length((df$income))))
 
-# Upper bound
+# Lower bound
 lower_95 = (mean(df$income))-(1.96)*(sd(df$income)/sqrt(length((df$income))))
 
 # Print
@@ -87,6 +91,7 @@ mean(df$income)
 upper_95
 
 # How to calculate 99% confidence intervals?
+
 
 ### Histogram ###
 hist(df$income)

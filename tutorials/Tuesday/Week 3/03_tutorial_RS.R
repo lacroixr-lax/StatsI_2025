@@ -18,7 +18,12 @@ getwd()
 # Is there a relationship between education and income?
 
 # Load data 
+df <- read.csv("datasets/fictional_data.csv")
 
+# First step, look at data
+View(df)
+str(df) # Present structure of R object
+?str
 
 # Selection of variables
 # Education: University level education in years
@@ -65,14 +70,18 @@ getwd()
 
 # The **approximate** solution 
 # Lower bound, 95 confidence level
+upper_95 = (mean(df$income))+(1.96)*(sd(df$income)/sqrt(length((df$income))))
 
+# Lower bound
+lower_95 = (mean(df$income))-(1.96)*(sd(df$income)/sqrt(length((df$income))))
 
 # Print
-
+lower_95
+mean(df$income)
+upper_95
 
 # The **precise** solution, using normal distribution
 # Lower bound, 95 confidence level
-
 
 # Upper bound, 95 confidence level
 
@@ -86,13 +95,18 @@ getwd()
 # When to use normal distribution and when to use t distribution?
 
 # The **precise** solution, using t distribution
+t_score <- qt(0.995, df = length(df$income) - 1)
 
+lower_99_t <- mean(df$income) - (t_score)*(sd(df$income)/sqrt(length(df$income)))
+upper_99_t <- mean(df$income) + (t_score)*(sd(df$income)/sqrt(length(df$income)))
 
 # Step by step 
 
 
 # Print
-
+lower_99_t
+mean(df$income)
+upper_99_t
 
 # Update Histogram 
 
