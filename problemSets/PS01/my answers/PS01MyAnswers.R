@@ -39,20 +39,20 @@ setwd('/Users/rosalielacroix/Documents/GitHub/StatsI_2025/problemSets/PS01/my an
 # Find a 90% confidence interval for the average student IQ in the school.
 y <- c(105, 69, 86, 100, 82, 111, 104, 110, 87, 108, 87, 90, 94, 113, 112, 98, 80, 97, 95, 111, 114, 89, 95, 126, 98)
 
-z90 <- qnorm((1-.90)/2, lower.tail = FALSE)
 n <- length(y)
 y_mean <- mean(y)
 y_sd <- sd(y)
-lower_90 <- y_mean - (z90 * (y_sd/sqrt(n)))
-upper_90 <- y_mean + (z90 * (y_sd/sqrt(n)))
+t90 <- qt((1-.90)/2, lower.tail = FALSE, df = n-1)
+lower_90 <- y_mean - (t90 * (y_sd/sqrt(n)))
+upper_90 <- y_mean + (t90 * (y_sd/sqrt(n)))
 confint90 <- c(lower_90, upper_90)
-confint90
+
 
 confint90_correct <- t.test(y, conf.level = 0.90, alternative = "two.sided")
 confint90_correct
 
 # With repeated sampling, 90% of confidence intervals will contain
-# the population parameters 94.13, 102.74.
+# the population parameters 93.96, 102.92.
 
 # Next, the school counselor was curious whether the average student IQ in her school
 # is higher than the average IQ score (100) among all the schools in the country.
@@ -173,14 +173,16 @@ plot(expenditure$X2,
   # across states. 
 
 # Plot the relationship between Y and region
-plot(expenditure$Region, 
-     expenditure$Y,
+boxplot(Y~Region, expenditure,
      xlab="Region",
      ylab="Per Capita Expenditure on Shelters/Housing Assistance",
      main="Per Capita Expenditure on Shelters/Housing Assistance in States by 
      Region",
      xaxt = "n")
 axis(1, at=1:4, labels=c("Northeast","North Central", "South", "West"))
+
+# On average, which region has the highest average?
+  # The highest average is the West. 
 
 # Plot the relationship between Y and X1, add region
 plot(expenditure$X1,
