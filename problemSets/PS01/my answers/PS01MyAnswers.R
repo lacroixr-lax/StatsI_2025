@@ -28,6 +28,8 @@ pkgTest <- function(pkg){
 # lapply(c("stringr"),  pkgTest)
 
 lapply(c("stringr"),  pkgTest)
+install.packages("stargazer")
+library(stargazer)
 
 getwd()
 setwd('/Users/rosalielacroix/Documents/GitHub/StatsI_2025/problemSets/PS01/my answers')
@@ -42,10 +44,12 @@ y <- c(105, 69, 86, 100, 82, 111, 104, 110, 87, 108, 87, 90, 94, 113, 112, 98, 8
 n <- length(y)
 y_mean <- mean(y)
 y_sd <- sd(y)
+# Use t-test as the sample size is less than 30
 t90 <- qt((1-.90)/2, lower.tail = FALSE, df = n-1)
 lower_90 <- y_mean - (t90 * (y_sd/sqrt(n)))
 upper_90 <- y_mean + (t90 * (y_sd/sqrt(n)))
 confint90 <- c(lower_90, upper_90)
+confint90
 
 
 confint90_correct <- t.test(y, conf.level = 0.90, alternative = "two.sided")
@@ -58,18 +62,20 @@ confint90_correct
 # is higher than the average IQ score (100) among all the schools in the country.
 # Using the same sample, conduct the appropriate hypothesis test with α= 0.05
 
-mo <- 100 # Hnull mean
-df <- n - 1 # small sample, less than 30
-t_test_by_hand <- function(y, mo = 100){
-  t <- (y_mean - mo)/y_sd
-  dat <- c(y_mean - mo, y_sd, t, pt(abs(t), df))
-  names(dat) <- c("Diff in means", "Std Error", "t", "p-value")
-  return(round(dat, 3))
-}
-t_test_by_hand(y)
-
-correct_hyp_test <- t.test(y, mu = 100, alternative = "greater")
-correct_hyp_test
+# Establish the null hypothesis
+hnull <- 100 
+df <- n - 1 # Small sample, less than 30
+# Standard error of y; use sd(y) determined earlier and named y_sd
+y_se <- y_sd/sqrt(n)
+# Use t-test as sample size is less than 30; use mean(y) determined 
+# earlier and named y_mean
+t <- (y_mean - hnull)/y_se
+# Compile values into a data frame to help legibility
+# Use pt() to determine the p-value
+df <- c(y_mean - hnull, y_se, t, pt(abs(t), df))
+names(df) <- c("Diff in means", "Std Error", "t", "p-value")
+hyp_test <- round(df, 3)
+hyp_test
 
 # We did not find significant evidence to reject the null hypothesis, 
 # as the p-value was found to be greater than our α = 0.05.
@@ -105,7 +111,7 @@ plot(expenditure$X1,
 # Y/X2
 plot(expenditure$X2,
      expenditure$Y,
-     xlab="Number of Residents per 100,000 that are ”Financially Insecure”",
+     xlab="Number of Residents per 100,000 that are ”Financially Insecure",
      ylab="Per Capita Expenditure on Shelters/Housing Assistance",
      main="The Relationship Between States' Number of Residents 
      that are Financially Insecure and Spending on Shelters/Housing Assistance")
@@ -173,13 +179,16 @@ plot(expenditure$X2,
   # across states. 
 
 # Plot the relationship between Y and region
+pdf("y_region_PS01.pdf")
 boxplot(Y~Region, expenditure,
      xlab="Region",
-     ylab="Per Capita Expenditure on Shelters/Housing Assistance",
-     main="Per Capita Expenditure on Shelters/Housing Assistance in States by 
-     Region",
+     ylab="Y",
+     main="Y vs. Region",
      xaxt = "n")
 axis(1, at=1:4, labels=c("Northeast","North Central", "South", "West"))
+means <- tapply(expenditure$Y, expenditure$Region, mean)
+points(means,col="red",pch=18)
+dev.off()
 
 # On average, which region has the highest average?
   # The highest average is the West. 
@@ -199,12 +208,13 @@ plot(expenditure$X1,
 # positive, linear relationship towards the lower/lower-middle end of the two variables,
 # but as both variables increase, this relationship becomes much weaker.
 
+pdf(file="last_question_PS01.pdf")
 plot(expenditure$X1,
      expenditure$Y,
      type = "n",
      xlab="Per Capita Personal Income",
      ylab="Per Capita Expenditure on Shelters/Housing Assistance",
-     main="The Relationship between Personal Income and Spending on Shelters/
+     main="Relationship between Personal Income and Spending on Shelters/
      Housing Assistance in States")
 points(x = expenditure$X1[expenditure$Region == "1"],
        y = expenditure$Y[expenditure$Region == "1"],
@@ -222,6 +232,8 @@ legend(1050, 120,
        col = c("deepskyblue","yellowgreen","deeppink3","black"),
        pch = c(16, 15, 17, 18),
        legend = c("Northeast", "North Central", "South", "West"))
+dev.off()
 
   # Credit https://intro2r.com/custom_plot.html for helping me make my plot
   # look aesthetically much nicer.
+
