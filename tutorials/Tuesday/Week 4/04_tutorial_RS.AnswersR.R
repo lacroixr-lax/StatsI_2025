@@ -5,7 +5,7 @@
 getwd()
 
 # Set working directory 
-setwd("/Users/redmondscales/Documents/Applied Stats/GitHub")
+setwd("/Users/rosalielacroix/Documents/GitHub/StatsI_2025")
 getwd()
 
 # Agenda
@@ -205,7 +205,7 @@ plot(df$income,df$edu,
      col=df$cap+1) # Color over third variable (+1, because first color in R is white)
 
 # Improve visualization and save
-png(file="tutorials/03/scatter_plot.png")
+png(file="tutorials_03_scatter_plot.png")
 plot(df$income,
      df$edu,
      col=df$cap+1,

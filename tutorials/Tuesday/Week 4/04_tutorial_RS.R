@@ -5,7 +5,7 @@
 getwd()
 
 # Set working directory 
-setwd("/Users/redmondscales/Documents/Applied Stats/GitHub")
+setwd("/Users/rosalielacroix/Documents/GitHub/Statsl_2025") 
 getwd()
 
 # Agenda
@@ -16,12 +16,14 @@ getwd()
 
 # Load data 
 df_not_tidy <- read.csv("datasets/movies.csv")
+str(df)
 
 # First step, look at data
 View(df_not_tidy)
 str(df_not_tidy)
 head(df_not_tidy)
 summary(df_not_tidy)
+df <- df_not_tidy
 
 # Research questions: 
 # Do different genres receive varying critical appreciation?
@@ -35,7 +37,8 @@ summary(df_not_tidy)
 
 
 # Contingency table 
-
+table(df$genre,
+      df$critics_rating)
 
 # Subset data, only consider Comedy, Documentary, Drama
 
@@ -43,7 +46,10 @@ summary(df_not_tidy)
 # Dataframe subsetting: df[rows, columns]
 
 # Step by step
-
+df_s <- df[df$genre == "Comedy"|
+        df$genre == "Drama"|
+       df$genre == "Documentary"]
+df_s
 
 # Option 2: Tidyverse subset
 

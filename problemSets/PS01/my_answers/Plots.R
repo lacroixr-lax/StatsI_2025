@@ -1,30 +1,41 @@
 pdf(file="six_plots_PS01.pdf")
 par(mfrow=c(2,3))
+# Y/X1
 plot(expenditure$X1,
      expenditure$Y,
      xlab="X1",
      ylab="Y",
      main= "Y vs. X1")
+
+# Y/X2
 plot(expenditure$X2,
      expenditure$Y,
      xlab="X2",
      ylab="Y",
      main="Y vs. X2")
+
+# Y/X3
 plot(expenditure$X3,
      expenditure$Y,
      xlab="Y",
      ylab="X3",
      main="Y vs. X3")
+
+# X1/X2
 plot(expenditure$X1,
      expenditure$X2,
      xlab="X1",
      ylab="X2",
      main="X1 vs. X2")
+
+# X1/X3
 plot(expenditure$X1,
      expenditure$X3,
      xlab="X1",
      ylab="X3",
      main="X1 vs. X3")
+
+# X2/X3
 plot(expenditure$X2,
      expenditure$X3,
      xlab="X2",
@@ -119,3 +130,19 @@ plot(expenditure$X2,
 
 getwd()
 setwd('/Users/rosalielacroix/Documents/GitHub/StatsI_2025/problemSets/PS01/my answers')
+
+pdf("original_last_q_PS01.pdf")
+plot(expenditure$X1, expenditure$Y,
+    xlab="Per Capita Personal Income",
+    ylab="Per Capita Expenditure on Shelters/Housing Assistance",
+    main="Relationship between Personal Income and Spending
+     on Shelters/Housing Assistance in States")
+dev.off()
+
+hnull <- 100
+t <- (y_mean - hnull)/y_se # We can use the mean(y) that were 
+# found in the previous question
+# and named y_mean
+dat <- c(y_mean - hnull, y_se, t, pt(abs(t), df))
+names(dat) <- c("Diff in means", "Std Error", "t", "p-value")
+print(round(dat, 3))
