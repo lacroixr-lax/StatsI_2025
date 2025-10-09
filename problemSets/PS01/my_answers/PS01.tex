@@ -93,7 +93,7 @@ A school counselor was curious about the average of IQ of the students in her sc
 	
 	\noindent Using the same sample, conduct the appropriate hypothesis test with $\alpha=0.05$.
 	
-\textsmaller[1]{To begin my hypothesis testing, I set the null hypothesis to be that the average student IQ in the counselor's school is less than or equal to the average IQ score among all other schools in the country of 100. The alternative hypothesis then states that the average student IQ in the counselor's school is greater than the average IQ score among all other schools of 100. The next step was determining the test statistic of t, as the sample size is less than 30. Calculation of the test statistic required the standard error, which can be found by dividing the standard deviation from the previous question by the square root of n. The t-statistic is a measure of how our sample data differs from what is expected in the null hypothesis, which means that to determine this statistic we needed to find the difference between our sample mean and the null hypothesis of 100. This difference is then divided by the standard error to calculate the t-statistic. The standard error, difference in means, t-statistic, and degrees of freedom were all utilized to determine the p-value. I defined my degrees of freedom as n - 1, as is standard for a t-test. It was important to indicate that we were utilizing a one-sided test, as the alternative hypothesis states that the student's IQ is greater than the national average, so we want to know solely about the upper tail. The p-value can be compared to the alpha value of 0.05 to tell us how likely it is that the sample statistic would occur if the null hypothesis were true. A p-value greater than 0.05 tells us that there is not significant evidence to reject the null hypothesis and it is therefore highly unlikely for the sample statistic to occur, whereas a p-value less than 0.05 tells us that there is significant evidence to reject the null hypothesis.}
+\textsmaller[1]{To begin the hypothesis test, I defined the null hypothesis to be that the average student IQ in the counselor's school is less than or equal to the average IQ score among all other schools in the country of 100. The alternative hypothesis then states that the average student IQ in the counselor's school is greater than the average IQ score among all other schools of 100. The next step was determining the test statistic of t, as the sample size is less than 30. Calculation of the test statistic required the standard error, which can be found by dividing the standard deviation from the previous question by the square root of n. The t-statistic is a measure of how our sample data differs from what is expected in the null hypothesis, which means that to determine this statistic we needed to find the difference between our sample mean and the null hypothesis mean of 100. This difference is then divided by the standard error to calculate the t-statistic. The standard error, difference in means, t-statistic, and degrees of freedom were all utilized to determine the p-value. I defined my degrees of freedom as n - 1, as is standard for a t-test. It was important to note that a one-sided test was necessary, as the alternative hypothesis states that the student's IQ is greater than the national average, indicating we want to know solely about the upper tail. The p-value can be compared to the alpha value of 0.05 to tell us how likely it is that the sample statistic would occur if the null hypothesis were true. A p-value greater than 0.05 tells us that there is not significant evidence to reject the null hypothesis and it is therefore highly unlikely for the sample statistic to occur, whereas a p-value less than 0.05 tells us that there is significant evidence to reject the null hypothesis.}
 	
 \lstinputlisting[language=R, firstline=66, lastline=78]{PS01MyAnswers.R}
 
@@ -144,26 +144,28 @@ Please plot the relationships among \emph{Y}, \emph{X1}, \emph{X2}, and \emph{X3
 \end{figure}
 
 Y vs. X1
-\textsmaller[1]{The graph shows there is a weak to moderate, positive, linear relationship between per capita personal income and per capita expenditure on shelters/housing assistance in states. The reason the relationship is being described as weak to moderate, is that there is a grouping of states that show a stronger positive, linear relationship towards the lower/lower-middle end of the two variables, but as both variables increase, this relationship becomes much weaker.}
+\textsmaller[1]{The graph shows there is a weak to moderate, positive, linear relationship between per capita personal income (X1) and per capita expenditure on shelters/housing assistance in states (Y). The reason the relationship is being described as weak to moderate, is that there is a grouping of states that show a stronger positive, linear relationship towards the lower/lower-middle end of the two variables, but as both variables increase, this relationship becomes much weaker.}
 
 Y vs. X2 
-\textsmaller[1]{The graph shows that there is little association between states' number of residents per 100,000 that are "financially insecure" and the amount of money that state is spending on shelters/housing assistance. Though the general association appears minimal, it is important to note that there is a weak, negative, linear association between states that have less than 300 residents per 100,000 and their expenditure on shelters/housing assistance. There also appears to be a weak, positive, linear association for states that have greater than 400 residents per 100,000 and their expenditure on shelters/housing assistance. These patterns appear to have a near-parabolic structure.}
+\textsmaller[1]{The graph shows that there is little association between states' number of residents per 100,000 that are "financially insecure" (X2) and the state's per capita expenditure on shelters/housing assistance (Y). Though the general association appears minimal, it is important to note that there is a weak, negative, linear association between states that have less than 300 residents per 100,000 and their expenditure on shelters/housing assistance. There also appears to be a weak, positive, linear association for states that have greater than 400 residents per 100,000 and their expenditure on shelters/housing assistance. These patterns appear to give the plot a near-parabolic structure.}
 
 Y vs. X3
-\textsmaller[1]{The graph shows that there is a weak, positive, linear association between the per capita expenditure on shelters/housing assistance in a state and it's number of people per thousand residing in urban areas. As Y increases, the relationship appears to weaken further.}
+\textsmaller[1]{The graph shows that there is a weak, positive, linear association between the per capita expenditure on shelters/housing assistance (Y) in a state and it's number of people per thousand residing in urban areas (X3). As Y increases, the relationship appears to weaken further.}
 
 X1 vs. X2
-\textsmaller[1]{The graph shows that there is a minimal association between states' per capita personal income and the number of residents that are financially there. In states where the per capita personal income is lower, a faint weak, positive association can be seen that begins to spread out as per capita personal income increases.}
+\textsmaller[1]{The graph shows that there is minimal to no relationship between states' per capita personal income (X1) and the number of residents per 100,000 that are "financially insecure" there (X2). }
 
 X1 vs. X3
-\textsmaller[1]{The graph shows that there is a weak to moderate, positive, linear relationship between states' per capita personal income and the number of people per thousand residing in rural areas. The association weakens when the per capita personal income reaches approximately 2300. There is an outlier from the general trend that appears on the higher end of per capita personal income (X1) but falls very low in the number of people residing in urban areas (X3).}
+\textsmaller[1]{The graph shows that there is a weak to moderate, positive, linear relationship between states' per capita personal income (X1) and the number of people per thousand residing in rural areas (X3). The association weakens when the per capita personal income reaches approximately 2300. There is an outlier from the general trend that appears on the higher end of per capita personal income but falls very low in the number of people residing in urban areas.}
 
 X2 vs. X3
-\textsmaller[1]{The graph shows that there is no association between the number of residents that are financially insecure and the number of people residing in urban areas across states.}
+\textsmaller[1]{The graph shows that there is no relationship between the number of residents that are "financially insecure" (X2) and the number of people residing in urban areas across states (X3).}
 
 \vspace{.5cm}
 \item
 Please plot the relationship between \emph{Y} and \emph{Region}? On average, which region has the highest per capita expenditure on housing assistance?
+
+\lstinputlisting[language=R, firstline=183, lastline=190]{PS01MyAnswers.R}
 
 \begin{figure}[h]
 	\caption{Relationship between Y and Region}
@@ -172,13 +174,13 @@ Please plot the relationship between \emph{Y} and \emph{Region}? On average, whi
 	\centering
 \end{figure}
 
-\textsmaller[1]{As you can see in Figure~\ref{fig 2:plot_2}, the West has the highest per capita expenditure on housing assistance. This can be seen in the boxplot with the red dot marking the means of each region.}
+\textsmaller[1]{As can be seen in Figure~\ref{fig 2:plot_2}, the West has the highest per capita expenditure on housing assistance. This can be seen in the boxplot with the red dot marking the means of each region.}
 
 \vspace{.5cm}
 \item
 Please plot the relationship between \emph{Y} and \emph{X1}? Describe this graph and the relationship. Reproduce the above graph including one more variable \emph{Region} and display different regions with different types of symbols and colors.
 
-\lstinputlisting[language=R, firstline=183, lastline=190]{PS01MyAnswers.R}
+\lstinputlisting[language=R, firstline=197, lastline=202]{PS01MyAnswers.R}
 
 \begin{figure}[h]
 	\caption{Relationship between Personal Income and Spending on Shelters/Housing Assistance in States}
@@ -197,6 +199,9 @@ Please plot the relationship between \emph{Y} and \emph{X1}? Describe this graph
 	\includegraphics[width=8cm]{last_question_PS01.pdf}
 	\centering
 \end{figure}
+
+\textsmaller[1]{I utilized help from the book "An Introduction to R" by Alex Douglas, Deon Roos, Francesca Mancini, Ana Couto \& David Lusseau, published in 2024, to help me in the aesthetic creation of Figure~\ref{fig 4:plot_4}. The book can be found at this link: https://intro2r.com/.}
+
 \end{itemize}
 
 

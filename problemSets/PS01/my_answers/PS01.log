@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.22)  7 OCT 2025 22:15
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.22)  9 OCT 2025 11:32
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -952,37 +952,29 @@ Package pdftex.def Info: six_plots_PS01.pdf  used on input line 142.
 (pdftex.def)             Requested size: 227.62204pt x 227.62523pt.
 
 
-[4 <./six_plots_PS01.pdf>]
+[4 <./six_plots_PS01.pdf>] (./PS01MyAnswers.R)
 <y_region_PS01.pdf, id=114, 505.89pt x 505.89pt>
 File: y_region_PS01.pdf Graphic file (type pdf)
 <use y_region_PS01.pdf>
-Package pdftex.def Info: y_region_PS01.pdf  used on input line 171.
+Package pdftex.def Info: y_region_PS01.pdf  used on input line 173.
 (pdftex.def)             Requested size: 227.62204pt x 227.62523pt.
- (./PS01MyAnswers.R)
-<original_last_q_PS01.pdf, id=116, 505.89pt x 505.89pt>
+ (./PS01MyAnswers.R
+
+[5 <./y_region_PS01.pdf>])
+<original_last_q_PS01.pdf, id=137, 505.89pt x 505.89pt>
 File: original_last_q_PS01.pdf Graphic file (type pdf)
 <use original_last_q_PS01.pdf>
-Package pdftex.def Info: original_last_q_PS01.pdf  used on input line 186.
+Package pdftex.def Info: original_last_q_PS01.pdf  used on input line 188.
 (pdftex.def)             Requested size: 227.62204pt x 227.62523pt.
+ (./PS01MyAnswers.R
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[5 <./y_region_PS01.pdf>] (./PS01MyAnswers.R)
-<last_question_PS01.pdf, id=138, 505.89pt x 505.89pt>
+[6 <./original_last_q_PS01.pdf>])
+<last_question_PS01.pdf, id=174, 505.89pt x 505.89pt>
 File: last_question_PS01.pdf Graphic file (type pdf)
 <use last_question_PS01.pdf>
-Package pdftex.def Info: last_question_PS01.pdf  used on input line 197.
+Package pdftex.def Info: last_question_PS01.pdf  used on input line 199.
 (pdftex.def)             Requested size: 227.62204pt x 227.62523pt.
 
-
-LaTeX Warning: `h' float specifier changed to `ht'.
-
-
-
-[6 <./original_last_q_PS01.pdf>]
 
 [7 <./last_question_PS01.pdf>] (./PS01.aux)
  ***********
@@ -993,9 +985,9 @@ Package rerunfilecheck Info: File `PS01.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27602 strings out of 473190
- 480139 string characters out of 5715800
- 1281639 words of memory out of 5000000
+ 27611 strings out of 473190
+ 480268 string characters out of 5715800
+ 1269639 words of memory out of 5000000
  50238 multiletter control sequences out of 15000+600000
  569232 words of font info for 78 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
@@ -1012,10 +1004,10 @@ xlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/tex
 live/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt10.pfb></usr/local/texl
 ive/2025/texmf-dist/fonts/type1/public/cm-super/sfrm0900.pfb></usr/local/texliv
 e/2025/texmf-dist/fonts/type1/public/cm-super/sfrm1095.pfb>
-Output written on PS01.pdf (7 pages, 211341 bytes).
+Output written on PS01.pdf (7 pages, 212897 bytes).
 PDF statistics:
- 265 PDF objects out of 1000 (max. 8388607)
- 221 compressed objects within 3 object streams
- 115 named destinations out of 1000 (max. 500000)
+ 274 PDF objects out of 1000 (max. 8388607)
+ 230 compressed objects within 3 object streams
+ 122 named destinations out of 1000 (max. 500000)
  33 words of extra memory for PDF output out of 10000 (max. 10000000)
 
