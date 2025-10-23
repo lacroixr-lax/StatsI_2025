@@ -15,7 +15,7 @@ getwd()
 # (d.) Bivariate regression 
 
 # Load data 
-df_not_tidy <- read.csv("datasets/movies.csv")
+df_not_tidy <- readRDS("datasets/movies.rds")
 
 # First step, look at data
 View(df_not_tidy)
@@ -30,7 +30,7 @@ summary(df_not_tidy)
 
 # Load tidy version of data
 # The data is prepared using the data_wraning.R script.
-df <- readRDS("datasets/movies.rds")
+df <- read.csv("datasets/movies.csv")
 str(df)
 
 # First step, look at data

@@ -5,7 +5,7 @@
 getwd()
 
 # Set working directory 
-setwd("/Users/redmondscales/Documents/Applied Stats/GitHub")
+setwd("/Users/rosalielacroix/Documents/GitHub/StatsI_2025")
 getwd()
 
 #############################
@@ -16,7 +16,7 @@ getwd()
 # movie genre and rating?
 
 # Load data
-df <- readRDS("datasets/movies.rds")
+df <- read.csv("datasets/movies.csv")
 View(df)
 
 # Dataframe subsetting: df[rows, columns]

@@ -47,7 +47,7 @@ setwd("/Users/elkarag/Desktop/Teaching/Applied Stats I/Week 5")
 # movie genre and rating?
 
 # Load data
-df <- readRDS("datasets/movies.rds")
+df <- read.csv("/Users/rosalielacroix/Documents/GitHub/StatsI_2025/datasets/movies.csv")
 View(df)
 
 # Dataframe subsetting: df[rows, columns]
@@ -95,7 +95,7 @@ chi_test$stdres
 # b. Correlation
 # -------------------------------#
 
-df <- read.csv("datasets/fictional_data.csv")
+df <- read.csv("/Users/rosalielacroix/Documents/GitHub/StatsI_2025/datasets/fictional_data.csv")
 View(df)
 
 # Scatter plot 
