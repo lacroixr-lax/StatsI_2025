@@ -36,7 +36,7 @@ lapply(c("wbstats", "ggplot2", "tidyverse", "stargazer", "readr"),  pkgTest)
 getwd()
 
 # Set working directory
-setwd("/Users/elkarag/Desktop/Teaching/Applied Stats I/Week 8")
+setwd("/Users/rosalielacroix/Documents/GitHub/StatsI_2025/tutorials/Wednesday/Week 8")
 
 # Agenda 
 # (a.) Gathering data
@@ -50,12 +50,12 @@ setwd("/Users/elkarag/Desktop/Teaching/Applied Stats I/Week 8")
 # https://medium.com/geekculture/a-beginners-guide-to-apis-9aa7b1b2e172
 
 # Load data from World Bank API
-wb <- wb(country=c("AF","BRA","ITA","NGA","SWE","UGA"), 
+wb <- wb_data(country=c("AF","BRA","ITA","NGA","SWE","UGA"), 
          indicator=c("NY.GDP.PCAP.CD", # GDP per capita (current US$)
                      "SP.POP.TOTL", # Population, total 
                      "SE.SEC.ENRR", #  School enrollment, secondary (% gross) 
                      "SH.DYN.MORT"), # Mortality rate, under-5 (per 1,000 live births) 
-         startdate = 2000, enddate = 2020)
+         )
 
 # Data formats--wide and long
 # https://www.statology.org/long-vs-wide-data/
@@ -90,6 +90,9 @@ df <- merge(wb, # Left df
             all.x=TRUE, # merge operation, only keep left
             sort=FALSE) # Do not sort observations
 
+summary(df)
+head(df)
+
 # Rename columns
 names(df)
 names(df)[4] <- "gdp_per_cap"
@@ -106,12 +109,16 @@ write.csv(df, "df_income_mortality.csv")
 # Add another variable either from the World Bank data or 
 # the Quality of Government dataset. 
 # Alternatively, add a variable from a new data source. 
-
-
+temp <- tempfile(fileext = ".zip") # Initiate temporary file
+# Download zip as temporary file
+download.file("https://ucdp.uu.se/downloads/ged/ged231-csv.zip", temp, mode="wb")
+ucdp <- read_csv(temp) # Read data
+View(ucdp)
 
 # Load some data that you find interesting. 
 # What is the level of analysis? 
 # Or rather, what is the 'unit' of each row?
+  # Specific instance of organized violence
 
 # **Common data sources**: 
 # UCDP Georeferenced Event Dataset (GED), https://ucdp.uu.se/downloads/index.html#ged_global
@@ -127,40 +134,52 @@ write.csv(df, "df_income_mortality.csv")
 # Information on api: https://kjhealy.github.io/gssr/
 
 # How can we merge data on different levels of analysis?
-# What is the level of analysis?
+# Which variables do we need?
+ucdp[c("country", "year", "best")]
+
+# Aggregate ucd from event to country year level
+?aggregate
+ucdp_agg <- aggregate(ucdp$best, # variable to aggregate
+                      list(ucdp$country, ucdp$year), # grouping variables
+                      FUN = sum)
+head(ucdp_agg)
+
+# Merge
+?merge
+df <- merge(df, ucdp_agg,
+            by.x = c("date", "country"),
+            by.y = c("Group.2", "Group.1"),
+            all.x = TRUE,
+            sort = FALSE)
+head(df)
+
+# Rename column
+names(df)[9] <- "best"
+View(df)
+
+# Replace missing values with 0
+df$best[is.na(df$best)] = 0
+df$best
 
 # (b.) Data wrangling -------
 
-# Get unique countries in df
-df_uni <- select(df, country) # Select variable
-df_uni <- distinct(df_uni, country) # Get unique values
-df_uni
-
 # Get unique countries in df, using the pipe
-df %>% 
-  select(country) %>% 
-  distinct(country) 
+df %>%
+  select(country) %>%
+  distinct(country)
 
 # Filter (subset is base R)
-df_s <- filter(df, country %in% c("Afghanistan","Italy")) 
+df_s <- filter(df, country %in% c("Afghanistan", "Italy"))
 df_s
 
-# Get the mean income and max child mortality for each year
+# Get the mean income and max child mortality for each year, and remove missing
+values
+?summarise
 df_grouped <- group_by(df, date) # Group by year
-df_mean_inc <- summarize(df_grouped, 
-                         n=n(), # Counts
-                         mean_inc=mean(gdp_per_cap), # Mean
-                         max_mort=max(mort)) # Max
-df_mean_inc
-
-# What about missing values?
-?mean
-# Get the mean income and max child mortality for each year
-df_grouped <- group_by(df, date) # Group by year
-df_mean_inc <- summarize(df_grouped, 
-                         n=n(), # Counts
-                         mean_inc=mean(gdp_per_cap, na.rm=TRUE), # Mean
-                         max_mort=max(mort)) # Max
+df_mean_inc <- summarize(df_grouped,
+                         n = n(),
+                         mean_inc = mean(gdp_per_cap, na.rm = TRUE),
+                         max_mort = max(mort))
 df_mean_inc
 
 # Check if df has missing values
@@ -187,6 +206,7 @@ df_na <- mutate(df_na, # Replace with mean if value is missing
                                    mean(sec_enrol, na.rm = TRUE), 
                                    sec_enrol))
 
+View(df_na)
 # Step by step:
 # ifelse(test, yes, no) 
 # --> if is.na is True, replace with mean,
@@ -195,11 +215,15 @@ df_na <- mutate(df_na, # Replace with mean if value is missing
 # Re-coding variables, in Base R
 # Create categorical income variable
 df_na$income_cat <- 0 # Create empty variable
+df_na
 summary(df_na$gdp_per_cap) # Check quantile
 summary(df_na$gdp_per_cap)[2]
+# Replace 0 value in income_cat with ranking based off of values in the summary
+# of the quartiles in gdp_per_cap
 df_na$income_cat[df_na$gdp_per_cap>summary(df_na$gdp_per_cap)[2]] <- 1 # Replace step by step
 df_na$income_cat[df_na$gdp_per_cap>summary(df_na$gdp_per_cap)[3]] <- 2
 df_na$income_cat[df_na$gdp_per_cap>summary(df_na$gdp_per_cap)[5]] <- 3
+df_na
 
 # Convert into factor
 typeof(df_na$income_cat)
@@ -225,15 +249,32 @@ cut(df_na$gdp_per_cap,breaks=quantile(df_na$gdp_per_cap),labels=c("low","medium_
 
 # Drop missing values 
 df <- df[complete.cases(df), ]
+?complete.cases
 
 # Exercise B -----------------
 
 # 1. Get the mean income for democracies and autocracies. 
+# Base R
+df_na$democracy == 0
+df_na$democracy == 1
+df_na[df_na$democracy == 0,]$gdp_per_cap
+df_na[df_na$democracy == 1,]$gdp_per_cap
+mean(df_na[df_na$democracy == 0,]$gdp_per_cap, na.rm = TRUE)
+mean(df_na[df_na$democracy == 1,]$gdp_per_cap, na.rm = TRUE)
 
-
+# Tidyverse
+df_na %>%
+  group_by(democracy) %>%
+  summarise(mean_inc = mean(mean(gdp_per_cap)))
 
 # 2. Get the mean income for Afghanistan. 
+# Base R
+mean(df_na[df_na$country == "Afghanistan",]$gdp_per_cap)
 
+# Tidyverse
+df_sub <- df_na %>% 
+  filter(country == "Afghanistan") %>%
+  summarise(mean = mean(gdp_per_cap))
 
 # 3. Create a variable, which measures the t-1 lag of GDP per capita.
 
@@ -244,10 +285,20 @@ df <- df[complete.cases(df), ]
 # as being from time t−1" (Kellstedt and Whitten 2018, p.257).
 
 # Group data, lagged variable needs to be country specific
-
+df_na <-
+  df_na %>%
+  arrange(country, date) %>%
+  group_by(country, date) %>%
+  mutate(income_lag = lag(gdp_per_cap, n = 1))
+View(df_na)
 
 # 4. Create a variable, which measure regime change. 
-
+df_na_reg <- group_by(df_na, country)
+df_na_reg
+df_na <- 
+  mutate(df_na_reg,
+         dem_lag = lag(democracy, n = 1))
+View(df_na)
 
 # (c.) Descriptive analysis -------
 
@@ -336,14 +387,27 @@ ggsave(scatter, file = "scatter.png")
 # Exercise C -----------------
 
 # 1. Add a regression line to your scatter plot. 
-
+scatter <-
+  ggplot(data = df_na, 
+         mapping = aes(x = log(gdp_per_cap), # log-transform
+                       y = mort,
+                       size = sec_enrol)) + 
+  geom_point() +
+  geom_smooth(method = 'lm', col = "black")
+scatter
 
 
 # 2. Create a new "scatter plot", which differentiates between
 # democracies and autocracies. Add the regression lines. 
 
 # Scatter plot
-
+scatter <-
+  ggplot(data = df_na, 
+         mapping = aes(x = factor(democracy), # log-transform
+                       y = mort,
+                       col = factor(democracy))) + 
+  geom_point()
+scatter
 
 
 # (d.) Regression analysis -----

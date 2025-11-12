@@ -455,8 +455,8 @@ scatter <-
 scatter
 
 # Equal to the mean differentiated by regime type
-mean(df_na[df_na$democracy==0,]$mort)
-mean(df_na[df_na$democracy==1,]$mort)
+mean(df_na[df_na$democracy==0,]$mort, na.rm = TRUE)
+mean(df_na[df_na$democracy==1,]$mort, na.rm = TRUE)
 model$coefficients[1]+model$coefficients[2]
 
 # (d.) Regression analysis -----
