@@ -39,10 +39,13 @@ getwd()
 # Set working directory
 setwd("/Users/rosalielacroix/Documents/GitHub/StatsI_2025/tutorials/Wednesday/Week 8")
 <<<<<<< Updated upstream:tutorials/Week 8/Week8_Tutorial.R
+<<<<<<< Updated upstream:tutorials/Week 8/Week8_Tutorial.R
 =======
 # Set wd for current folder
 setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 >>>>>>> 95f84640add4daef4fb4cade528fec846a315b6d:tutorials/Week 8/Week8_Tutorial.R
+=======
+>>>>>>> Stashed changes:tutorials/Wednesday/Week 8/Week8_Tutorial.R
 =======
 >>>>>>> Stashed changes:tutorials/Wednesday/Week 8/Week8_Tutorial.R
 
