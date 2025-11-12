@@ -35,8 +35,8 @@ lapply(c("readr", "ggplot2"),  pkgTest)
 # Get working directory
 getwd()
 
-# Set working directory
-setwd("/Users/elkarag/Desktop/Teaching/Applied Stats I/Week 5")
+# Set wd for current folder
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 # Agenda
 # (a.) Revise chi-square test
@@ -47,7 +47,11 @@ setwd("/Users/elkarag/Desktop/Teaching/Applied Stats I/Week 5")
 # movie genre and rating?
 
 # Load data
+<<<<<<<< HEAD:problemSets/PS01/tutorials/Wednesday/Week 5/Week5_Tutorial.R
 df <- read.csv("/Users/rosalielacroix/Documents/GitHub/StatsI_2025/datasets/movies.csv")
+========
+df <- readRDS("../../datasets/movies.rds")
+>>>>>>>> 95f84640add4daef4fb4cade528fec846a315b6d:tutorials/Week 5/Week5_Tutorial.R
 View(df)
 
 # Dataframe subsetting: df[rows, columns]
@@ -95,7 +99,11 @@ chi_test$stdres
 # b. Correlation
 # -------------------------------#
 
+<<<<<<<< HEAD:problemSets/PS01/tutorials/Wednesday/Week 5/Week5_Tutorial.R
 df <- read.csv("/Users/rosalielacroix/Documents/GitHub/StatsI_2025/datasets/fictional_data.csv")
+========
+df <- read.csv("../../datasets/fictional_data.csv")
+>>>>>>>> 95f84640add4daef4fb4cade528fec846a315b6d:tutorials/Week 5/Week5_Tutorial.R
 View(df)
 
 # Scatter plot 

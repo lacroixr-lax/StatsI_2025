@@ -35,8 +35,8 @@ lapply(c("readr", "ggplot2", "dplyr", "viridis", "foreign"),  pkgTest)
 # Get working directory
 getwd()
 
-# Set working directory
-#setwd("/Users/elkarag/Desktop/Teaching/Applied Stats I/Week 4")
+# Set wd for current folder
+setwd(dirname(rstudioapi::getActiveDocumentContext()$path))
 
 # Agenda
 # (0.0) Data-wrangling 
@@ -50,7 +50,7 @@ getwd()
 # -------------------------------#
 
 # Load data 
-df_not_tidy <- read.csv("data/movies.csv")
+df_not_tidy <- read.csv("../../datasets/movies.csv")
 
 # First step, look at data
 View(df_not_tidy)
@@ -61,9 +61,9 @@ summary(df_not_tidy)
 # Research question:
 # Do different genres receive different critical appreciation?
 
-# Load the tidy version of thedata
+# Load the tidy version of the data
 # (Prepared using the data_wrangling.R script)
-df <- readRDS("data/movies.rds")
+df <- readRDS("../../datasets/movies.rds")
 str(df)
 
 # First step, look at data
@@ -155,7 +155,7 @@ prop.table(table(df_s$genre,
                  df_s$critics_rating))
 
 # - manual check for 'comedy' genre: which values do we use? 
-63/444
+# Your answer here 
 
 # Interpretation:
 # Estimated probability of two specific values co-occurring.
@@ -172,7 +172,7 @@ prop.table(table(df_s$genre,           # rows
            margin = 1) # over rows
 
 # - manual check for 'comedy' AND 'rotten': which values do we use? 
-63/87
+# your answer here
 
 # Add marginal distributions (conditional on rows)
 addmargins(prop.table(table(df_s$genre, 
@@ -201,12 +201,12 @@ round(0.72413793, 2)
 
 # What do we use here then? 
 # Over columns --> Genre conditional on critics rating
-addmargins(prop.table(table(df_s$genre,           #row
-                            df_s$critics_rating), # column
+addmargins(prop.table(table(# your answer here,           #row
+                            # your answer here), # column
                       margin = 2)) 
                       
 # - manual check for 'comedy' given 'rotten' : which values do we use?                       
-63/190
+# your answer here
 
 # ==========================================================
 # Visualizing conditional distributions with a bar plot
@@ -264,7 +264,7 @@ chi$residuals
 # Question: Is there an association between education and income?
 
 # Load dataset
-df <- read.csv("data/fictional_data.csv")
+df <- read.csv("../../datasets/fictional_data.csv")
 
 # Quick scatter plot
 plot(df$edu, df$income)
