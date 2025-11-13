@@ -26,7 +26,6 @@ pkgTest <- function(pkg){
 # here is where you load any necessary packages
 # ex: stringr
 # lapply(c("stringr"),  pkgTest)
-lapply(c("readr", "ggplot2"),  pkgTest)
 lapply(c("wbstats", "ggplot2", "tidyverse", "stargazer", "readr"),  pkgTest)
 
 # set wd for current folder
@@ -64,8 +63,8 @@ stargazer(regression1,
           type = "latex",
           title = "Table of Coefficients",
           column.labels = "Regression 1",
-          covariate.labels = "difflog",
-          dep.var.labels = "voteshare")
+          covariate.labels = "Difflog",
+          dep.var.labels = "Voteshare")
 
 # Question 2: presvote ~ difflog
 # Regression

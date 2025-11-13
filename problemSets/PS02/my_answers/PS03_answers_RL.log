@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.22)  13 NOV 2025 11:12
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.22)  13 NOV 2025 11:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**PS02_RL.tex
-(./PS02_RL.tex
+**PS03_answers_RL.tex
+(./PS03_answers_RL.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025/texmf-dist/tex/latex/base/article.cls
@@ -831,38 +831,29 @@ File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count348
 \l__pdf_internal_box=\box77
 )
-(./PS02_RL.aux
+(./PS03_answers_RL.aux)
+\openout1 = `PS03_answers_RL.aux'.
 
-LaTeX Warning: Label `' multiply defined.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 72.
+LaTeX Font Info:    ... okay on input line 72.
 
-
-LaTeX Warning: Label `' multiply defined.
-
-
-LaTeX Warning: Label `' multiply defined.
-
-)
-\openout1 = `PS02_RL.aux'.
-
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 70.
-LaTeX Font Info:    ... okay on input line 70.
- (/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+(/usr/local/texlive/2025/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
 \scratchcounter=\count349
 \scratchdimen=\dimen311
@@ -884,29 +875,26 @@ Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
 File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
 e
 ))
-LaTeX Font Info:    Trying to load font information for U+msa on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 72.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 70.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 72.
 
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-Package xypdf Info: Line width: 0.47998pt on input line 70.
-Package hyperref Info: Link coloring OFF on input line 70.
- (./PS02_RL.out) (./PS02_RL.out)
+Package xypdf Info: Line width: 0.47998pt on input line 72.
+Package hyperref Info: Link coloring OFF on input line 72.
+
+(./PS03_answers_RL.out) (./PS03_answers_RL.out)
 \@outlinefile=\write7
-\openout7 = `PS02_RL.out'.
+\openout7 = `PS03_answers_RL.out'.
 
 \c@lstlisting=\count355
-
-Underfull \hbox (badness 10000) in paragraph at lines 96--97
-
- []
 
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
@@ -917,110 +905,27 @@ File: lstlang2.sty 2024/09/23 1.10c listings language file
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang3.sty
 File: lstlang3.sty 2024/09/23 1.10c listings language file
 )
-Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 100.
 
-(./PS02_RL.R
-LaTeX Font Info:    Trying to load font information for OML+cmr on input line 3
-8.
- (/usr/local/texlive/2025/texmf-dist/tex/latex/base/omlcmr.fd
-File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 38.
+! Package Listings Error: File `PS03_myanswers_RL(.R)' not found.
 
+Type X to quit or <RETURN> to proceed,
+or enter new name. (Default extension: R)
 
-[1
+Enter file name: 
+! Emergency stop.
+<read *> 
+         
+l.92 ...line=40, lastline=40]{PS03_myanswers_RL.R}
+                                                  ^^M
+*** (cannot \read from terminal in nonstop modes)
 
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
-LaTeX Font Info:    Trying to load font information for OMS+cmr on input line 4
-3.
-
-(/usr/local/texlive/2025/texmf-dist/tex/latex/base/omscmr.fd
-File: omscmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
-)
-LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 43.
-)
-
-[2]
-Underfull \hbox (badness 10000) in paragraph at lines 106--107
-
- []
-
-(./PS02_RL.R) (./PS02_RL.R)
-
-[3]
-Underfull \hbox (badness 10000) in paragraph at lines 141--142
-
- []
-
-<women_desc.png, id=97, 750.805pt x 300.12125pt>
-File: women_desc.png Graphic file (type png)
-<use women_desc.png>
-Package pdftex.def Info: women_desc.png  used on input line 150.
-(pdftex.def)             Requested size: 516.73338pt x 206.5664pt.
-
-Overfull \hbox (46.97836pt too wide) in paragraph at lines 150--151
- [][] 
- []
-
-
-
-[4 <./women_desc.png>] (./PS02_RL.R)
-<PS02_regression.png, id=106, 481.8pt x 305.14pt>
-File: PS02_regression.png Graphic file (type png)
-<use PS02_regression.png>
-Package pdftex.def Info: PS02_regression.png  used on input line 163.
-(pdftex.def)             Requested size: 284.52756pt x 180.2033pt.
-
-
-[5 <./PS02_regression.png>]
-
-[6]
-
-[7]
-
-[8] (./PS02_RL.aux)
- ***********
-LaTeX2e <2024-11-01> patch level 2
-L3 programming layer <2025-01-18>
- ***********
-
-
-LaTeX Warning: There were multiply-defined labels.
-
-Package rerunfilecheck Info: File `PS02_RL.out' has not changed.
-(rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
- ) 
+ 
 Here is how much of TeX's memory you used:
- 27503 strings out of 473190
- 478284 string characters out of 5715800
- 1409365 words of memory out of 5000000
- 50183 multiletter control sequences out of 15000+600000
- 570277 words of font info for 84 fonts, out of 8000000 for 9000
+ 26345 strings out of 473190
+ 466287 string characters out of 5715800
+ 1054825 words of memory out of 5000000
+ 49126 multiletter control sequences out of 15000+600000
+ 568941 words of font info for 79 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 84i,10n,91p,3239b,2820s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx12.pfb
-></usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb>
-</usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi12.pfb><
-/usr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></u
-sr/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr12.pfb></usr
-/local/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr17.pfb></usr/l
-ocal/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/loca
-l/texlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/t
-exlive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texl
-ive/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texli
-ve/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive
-/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti10.pfb></usr/local/texlive/
-2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmti12.pfb></usr/local/texlive/2
-025/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/20
-25/texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb>
-Output written on PS02_RL.pdf (8 pages, 268997 bytes).
-PDF statistics:
- 218 PDF objects out of 1000 (max. 8388607)
- 172 compressed objects within 2 object streams
- 78 named destinations out of 1000 (max. 500000)
- 23 words of extra memory for PDF output out of 10000 (max. 10000000)
-
+ 84i,6n,91p,3247b,266s stack positions out of 10000i,1000n,20000p,200000b,200000s
+!  ==> Fatal error occurred, no output PDF file produced!
