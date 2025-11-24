@@ -133,7 +133,9 @@ plot(jitter(df$eduyrs,2),jitter(df$euftf_re,2))
 # -----------------------------------------------------------
 model_base <- lm(euftf_re ~ gndr + agea + brncntr, data=df)
 summary(model_base)
-
+# On average being born in the country makes you less euroskeptic than not, 
+# with all other variables being held country. This is statistically 
+# significant. 
 
 # -----------------------------------------------------------
 # Visualization: regression with categorical IVs
@@ -144,6 +146,7 @@ model_base <- lm(euftf_re ~ brncntr, data=df)
 summary(model_base)
 
 # Plot 
+# Plotting a dummy variable this way is ugly!! Need to do something different. 
 plot(df$agea, df$euftf_re)
 abline(h=model_base$coefficients[1],col="black") # Regression line brncntr=0, Born in country
 abline(h=model_base$coefficients[1]+model_base$coefficients[2],col="blue") # Regression line brncntr=1, Not born in country
@@ -176,6 +179,9 @@ summary(model1)
 
 # What is the prediction equation?
 # Your answer here
+# euroscepticism = 4.85 - 0.04 * Education
+# For every year of education increase, on average there will be a decrease in
+# euroscepticism of 0.04.
 
 # Categorical independent variable (manually)
 
@@ -190,9 +196,12 @@ df$Postgraduate <- ifelse(df$edu_cat == "Postgraduate Degree", 1, 0)
 df <- dummy_cols(df, select_columns = "edu_cat")
 
 # Fit model
+# Excluding junior cycle because it is the reference category
 model1 <- lm(euftf_re ~ LeavingCertificate + AdvancedCertificate + Bachelor + Postgraduate,
              data=df)
 summary(model1)
+# Conclusions are all in reference to junior cycle because it is the reference
+# category
 
 # Change reference category to leaving certificate 
 model1 <- lm(euftf_re~ JuniorCycle + AdvancedCertificate + Bachelor + Postgraduate,
@@ -215,11 +224,13 @@ levels(df$edu_cat) # First level, "Leaving Certificate"
 
 # Refit model
 model11 <- lm(euftf_re ~ edu_cat,data=df)
-summary(model1) 
+summary(model11) 
 
 # Which hypothesis test can we interpret?
 # What is the t-test for individual coefficients?
+  # They are not significant.
 # What is the F-test for all coefficients?
+
 
 # -----------------------------------------------------------
 # (2) Hypothesis 2: Income and Euroscepticism
@@ -230,6 +241,7 @@ model2 <- lm(euftf_re ~ hinctnta,data=df)
 summary(model2)
 
 # What is the prediction equation?
+# euroscepticism = 4.18 - 0.025 * income
 # Which interpretations can we make?
 
 # -----------------------------------------------------------
@@ -241,7 +253,9 @@ model3 <- lm(euftf_re ~ trstplt, data=df)
 summary(model3)
 
 # What is the prediction equation?
+# euroscepticism = 4.895 - 0.1514 * Trust
 # Which interpretations can we make?
+# On average, when trust increases, euroscepticism decreases.
 
 # -----------------------------------------------------------
 # (4) Hypothesis 4: Immigration attitudes and Euroscepticism
@@ -252,7 +266,10 @@ model4 <- lm(euftf_re ~ imwbcnt,data=df)
 summary(model4)
 
 # What is the prediction equation?
+# euroscepticism = 6.63 - 0.359 * Immigration
 # Which interpretations can we make?
+# On average, for every unit increase in immigration attitudes, there is 0.359
+# decrease in euroscepticism.
 
 # -----------------------------------------------------------
 # (5) Putting it all together
@@ -267,6 +284,8 @@ nobs(model1) # Number of observations in model
 model_eco <- lm(euftf_re~eduyrs + hinctnta,data=df)
 summary(model_eco)
 nobs(model_eco) # Number of observations in model
+# Lower nobs because we have missing values in income - you need to do something
+# about this as lm automatically removes all incomplete cases
 
 # Default in lm to handle missing values is
 # to remove incomplete cases
@@ -290,6 +309,7 @@ model_eco <- lm(euftf_re~eduyrs + hinctnta,data=df_na)
 summary(model_eco)
 
 # What is the prediction equation?
+# euroscepticism = 4.405 - 0.021 * education - 0.006 * income
 # Which interpretations can we make?
 
 # Add political dimension
@@ -297,6 +317,8 @@ model_pol <- lm(euftf_re~eduyrs + hinctnta + trstplt, data=df_na)
 summary(model_pol)
 
 # Which interpretations can we make?
+# On average, the more you trust politicians, the less eurosceptic you are, 
+# holding everything else constant. 
 
 # Add cultural dimension
 model_cul <- lm(euftf_re~eduyrs + hinctnta + trstplt + imwbcnt, data=df_na)
@@ -309,6 +331,11 @@ model_final <- lm(euftf_re~eduyrs + hinctnta + trstplt + imwbcnt + gndr + agea +
 summary(model_final)
 
 # Which interpretations can we make?
+# On average, the more you support immigration the less eurosceptic you are,
+# holding everything else constant. On average, for a one unit increase in
+# immigration attitudes, there is a 0.375 decrease in euroscepticism, when all
+# other variables are held constant. 
+
 
 # Get Latex table
 stargazer(model1,model_eco,model_pol,model_cul,model_final)
@@ -327,10 +354,15 @@ coefplot::multiplot(
 # Does adding economic dimension improve fit?
 anova(model1, model_eco, test='F')
 summary(model_eco)
+# With an F score of 0.0418 and p-value of 0.838 we cannot reject the null
+# that adding an economic dimension improves fit. The reduced model performs
+# just as well without adding the economic dimension.
 
 # Does adding political dimension improve fit?
 anova(model1, model_pol, test='F')
 summary(model_pol)
+# Adding a political dimension improves fit because the p-value is smaller than
+# 0.05.
 
 # What about political dimension alone?
 model3 <- lm(euftf_re ~ eduyrs + trstplt, data=df_na) # Refit with df_na
