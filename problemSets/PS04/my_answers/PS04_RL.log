@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.22)  23 NOV 2025 17:08
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.9.22)  26 NOV 2025 11:00
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -895,11 +895,6 @@ Package hyperref Info: Link coloring OFF on input line 70.
 
 \c@lstlisting=\count355
 
-
-[1
-
-{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
-al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 (/usr/local/texlive/2025/texmf-dist/tex/latex/listings/lstlang1.sty
 File: lstlang1.sty 2024/09/23 1.10c listings language file
 )
@@ -910,7 +905,7 @@ File: lstlang2.sty 2024/09/23 1.10c listings language file
 File: lstlang3.sty 2024/09/23 1.10c listings language file
 )
 Package hyperref Info: bookmark level for unknown lstlisting defaults to 0 on i
-nput line 103.
+nput line 102.
 
 (./PS04_RL.R
 LaTeX Font Info:    Trying to load font information for OML+cmr on input line 4
@@ -921,6 +916,11 @@ File: omlcmr.fd 2024/11/19 v2.5n Standard LaTeX font definitions
 LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 (Font)              Font shape `OML/cmm/m/it' tried instead on input line 43.
 )
+
+[1
+
+{/usr/local/texlive/2025/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/usr/loc
+al/texlive/2025/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc}]
 (./PS04_RL.R)
 
 [2]
@@ -928,60 +928,22 @@ LaTeX Font Info:    Font shape `OML/cmr/m/n' in size <10> not available
 [3] (./PS04_RL.R) (./PS04_RL.R)
 
 [4]
-Underfull \hbox (badness 10000) in paragraph at lines 188--189
+Underfull \hbox (badness 10000) in paragraph at lines 198--199
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 190--192
+Underfull \hbox (badness 10000) in paragraph at lines 200--202
 
  []
 
-! Missing $ inserted.
-<inserted text> 
-                $
-l.216 ..._{1}$ = 0, $H_{a}$ : $\beta_{1}$ \neq 0.}
-                                                  
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
 
-! Extra }, or forgotten $.
-\\textsmaller  ...->\leavevmode {\relsize {-#1}#2}
-                                                  
-l.216 ..._{1}$ = 0, $H_{a}$ : $\beta_{1}$ \neq 0.}
-                                                  
-I've deleted a group-closing symbol because it seems to be
-spurious, as in `$x}$'. But perhaps the } is legitimate and
-you forgot something else, as in `\hbox{$x}'. In such cases
-the way to recover is to insert both the forgotten and the
-deleted material, e.g., by typing `I$}'.
-
-! Missing $ inserted.
-<inserted text> 
-                $
-l.217 	
-       
-I've inserted a begin-math/end-math symbol since I think
-you left one out. Proceed, with fingers crossed.
-
-! Missing } inserted.
-<inserted text> 
-                }
-l.217 	
-       
-I've inserted something that you may have forgotten.
-(See the <inserted text> above.)
-With luck, this will get me unwedged. But if you
-really didn't forget anything, try typing `2' now; then
-my insertion and my current dilemma will both disappear.
-
-(./PS04_RL.R)
 
 [5]
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.227 ..._{2}$ = 0, $H_{a}$ : $\beta_{2}$ \neq 0.}
+l.229 ..._{1}$ = 0, $H_{a}$ : $\beta_{1}$ \neq 0.}
                                                   
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -989,7 +951,7 @@ you left one out. Proceed, with fingers crossed.
 ! Extra }, or forgotten $.
 \\textsmaller  ...->\leavevmode {\relsize {-#1}#2}
                                                   
-l.227 ..._{2}$ = 0, $H_{a}$ : $\beta_{2}$ \neq 0.}
+l.229 ..._{1}$ = 0, $H_{a}$ : $\beta_{1}$ \neq 0.}
                                                   
 I've deleted a group-closing symbol because it seems to be
 spurious, as in `$x}$'. But perhaps the } is legitimate and
@@ -1000,7 +962,46 @@ deleted material, e.g., by typing `I$}'.
 ! Missing $ inserted.
 <inserted text> 
                 $
-l.228 		
+l.230 	
+       
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Missing } inserted.
+<inserted text> 
+                }
+l.230 	
+       
+I've inserted something that you may have forgotten.
+(See the <inserted text> above.)
+With luck, this will get me unwedged. But if you
+really didn't forget anything, try typing `2' now; then
+my insertion and my current dilemma will both disappear.
+
+(./PS04_RL.R)
+! Missing $ inserted.
+<inserted text> 
+                $
+l.241 ..._{2}$ = 0, $H_{a}$ : $\beta_{2}$ \neq 0.}
+                                                  
+I've inserted a begin-math/end-math symbol since I think
+you left one out. Proceed, with fingers crossed.
+
+! Extra }, or forgotten $.
+\\textsmaller  ...->\leavevmode {\relsize {-#1}#2}
+                                                  
+l.241 ..._{2}$ = 0, $H_{a}$ : $\beta_{2}$ \neq 0.}
+                                                  
+I've deleted a group-closing symbol because it seems to be
+spurious, as in `$x}$'. But perhaps the } is legitimate and
+you forgot something else, as in `\hbox{$x}'. In such cases
+the way to recover is to insert both the forgotten and the
+deleted material, e.g., by typing `I$}'.
+
+! Missing $ inserted.
+<inserted text> 
+                $
+l.242 		
         
 I've inserted a begin-math/end-math symbol since I think
 you left one out. Proceed, with fingers crossed.
@@ -1008,7 +1009,7 @@ you left one out. Proceed, with fingers crossed.
 ! Missing } inserted.
 <inserted text> 
                 }
-l.228 		
+l.242 		
         
 I've inserted something that you may have forgotten.
 (See the <inserted text> above.)
@@ -1018,7 +1019,9 @@ my insertion and my current dilemma will both disappear.
 
 (./PS04_RL.R)
 
-[6] (./PS04_RL.aux)
+[6] (./PS04_RL.R)
+
+[7] (./PS04_RL.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
@@ -1027,10 +1030,10 @@ Package rerunfilecheck Info: File `PS04_RL.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 27416 strings out of 473190
- 476913 string characters out of 5715800
- 1087380 words of memory out of 5000000
- 50140 multiletter control sequences out of 15000+600000
+ 27452 strings out of 473190
+ 477334 string characters out of 5715800
+ 1149860 words of memory out of 5000000
+ 50150 multiletter control sequences out of 15000+600000
  570921 words of font info for 86 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  84i,10n,91p,3239b,2203s stack positions out of 10000i,1000n,20000p,200000b,200000s
@@ -1051,10 +1054,10 @@ e/2025/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive
 5/texmf-dist/fonts/type1/public/amsfonts/cm/cmtt12.pfb></usr/local/texlive/2025
 /texmf-dist/fonts/type1/public/cm-super/sfrm1000.pfb></usr/local/texlive/2025/t
 exmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb>
-Output written on PS04_RL.pdf (6 pages, 194824 bytes).
+Output written on PS04_RL.pdf (7 pages, 198728 bytes).
 PDF statistics:
- 155 PDF objects out of 1000 (max. 8388607)
- 111 compressed objects within 2 object streams
- 32 named destinations out of 1000 (max. 500000)
+ 190 PDF objects out of 1000 (max. 8388607)
+ 145 compressed objects within 2 object streams
+ 56 named destinations out of 1000 (max. 500000)
  13 words of extra memory for PDF output out of 10000 (max. 10000000)
 

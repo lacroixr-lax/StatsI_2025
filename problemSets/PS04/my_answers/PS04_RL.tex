@@ -94,7 +94,6 @@ help(Prestige)
 
 \noindent We would like to study whether individuals with higher levels of income have more prestigious jobs. Moreover, we would like to study whether professionals have more prestigious jobs than blue and white collar workers.
 
-\newpage
 \begin{enumerate}
 	
 	\item [(a)]
@@ -107,7 +106,9 @@ help(Prestige)
 	\item [(b)]
 	Run a linear model with \texttt{prestige} as an outcome and \texttt{income}, \texttt{professional}, and the interaction of the two as predictors (Note: this is a continuous $\times$ dummy interaction.)
 	
-	\lstinputlisting[language=R, firstline=48, lastline=48]{PS04_RL.R}
+	\lstinputlisting[language=R, firstline=48, lastline=49]{PS04_RL.R}
+	
+	\textsmaller[1]{There is a positive, significant linear relationship between income and prestige score, as well as between type of occupation (Professional) and prestige score. The Professional variable is a dummy variable defined as blue and white collar workers = 0, and professional, managerial, and technical workers = 1. There is a negative, statistically significant linear relationship between the interaction variable income*professional and prestige score. This means that when professional is 1, the impact of income on prestige score decreases by 0.002.}
 	
 	\begin{table}[!htbp] \centering 
 		\caption{Table of Coefficients} 
@@ -148,35 +149,44 @@ help(Prestige)
 	\item [(c)]
 	Write the prediction equation based on the result.
 	
-		\textsmaller[1]{The prediction equation based on this result is y = 21.142 + 0.003$x_{1}$ + 37.781$D_{1}$ - 0.002$_{int,D1}$$D_{1}$$x_{1}$. More specifically, for this particular model, prestige = 21.142 + 0.003*income + 37.781*professional - 0.002*income:professional.}
+		\textsmaller[1]{The prediction equation based on this result is y = 21.142 + 0.003$x_{1}$ + 37.781$D_{1}$ - 0.002$D_{1}$$x_{1}$. More specifically, for this particular model, prestige = 21.142 + 0.003*income + 37.781*professional - 0.002*income:professional.}
 	\vspace{2cm}
 	\item [(d)]
 	Interpret the coefficient for \texttt{income}.
 	
-		\textsmaller[1]{The coefficient for income indicates that, on average, when professional is 0 and when the interaction between income and professional is 0, for every one unit increase in income, there is a 0.003 increase in prestige. This can also be interpreted as, on average, for blue and white collar workers, for every one unit increase in income, there is a 0.003 increase in Pineo-Porter prestige score for occupation.}
+		\textsmaller[1]{The coefficient for income indicates that, on average, when professional is 0, for every one unit increase in income, there is a 0.003 increase in prestige. This can also be interpreted as, on average, for blue and white collar workers, for every one unit (\$1) increase in income, there is a 0.003 increase in Pineo-Porter prestige score for occupation.}
 	
 	\vspace{2cm}	
 	\item [(e)]
 	Interpret the coefficient for \texttt{professional}.
 	
-		\textsmaller[1]{The coefficient for professional indicates that, on average, when income is held constant, for a one unit increase in professional, there is a 37.781 increase in prestige. This can also be interpreted as, on average, when income is held constant, for a professional, there is a 37.781 increase in Pineo-Porter prestige score for occupation.}
+		\textsmaller[1]{The coefficient for professional indicates that, on average, when income is 0, for a one unit increase in professional, there is a 37.781 increase in prestige. This can also be interpreted as, on average, when income is 0, moving from a blue or white color worker to a professional, results in a 37.781 increase in Pineo-Porter prestige score for occupation.}
 	
 	\newpage
 	\item [(f)]
 	What is the effect of a \$1,000 increase in income on prestige score for professional occupations? In other words, we are interested in the marginal effect of income when the variable \texttt{professional} takes the value of $1$. Calculate the change in $\hat{y}$ associated with a \$1,000 increase in income based on your answer for (c).
 	
-	\lstinputlisting[language=R, firstline=64, lastline=64]{PS04_RL.R}
+	\textsmaller[1]{Prediction equation from (c): prestige = 21.142 + 0.003*income + 37.781*professional - 0.002*income:professional.}
+
+	\textsmaller[1]{Income\_0 = \$0; Income\_1000 = \$1,000; Professional = 1}
 	
-	\textsmaller[1]{The effect of a \$1,000 increase in income on prestige score for professional occupations is 59.923.}
+	\lstinputlisting[language=R, firstline=64, lastline=66]{PS04_RL.R}
+	
+	\textsmaller[1]{The effect of a \$1,000 increase in income on prestige score for professional occupations is 1. This is an incredibly small effect on prestige score due to the small coefficient associated with a change in income.}
 	
 	\vspace{2cm}
 	
 	\item [(g)]
 	What is the effect of changing one's occupations from non-professional to professional when her income is \$6,000? We are interested in the marginal effect of professional jobs when the variable \texttt{income} takes the value of $6,000$. Calculate the change in $\hat{y}$ based on your answer for (c).
 	
-	\lstinputlisting[language=R, firstline=70, lastline=72]{PS04_RL.R}
+		\textsmaller[1]{Prediction equation from (c): prestige = 21.142 + 0.003*income + 37.781*professional - 0.002*income:professional.}
 	
-	\textsmaller[1]{The effect of changing one's occupation from a non-professional to professional with an income of \$6,000 is a 25.781 increase in prestige score.}
+	\textsmaller[1]{Non-prof: Income = \$6,000; Professional = 0}
+	\textsmaller[1]{Prof: Income = \$6,000; Professional = 1}
+	
+	\lstinputlisting[language=R, firstline=72, lastline=74]{PS04_RL.R}
+	
+	\textsmaller[1]{The effect of changing one's occupation from a non-professional to professional with an income of \$6,000 is a 25.781 increase in prestige score. Compared to a change in income, a change in professional status has a larger effect on prestige score due to the larger coefficient associated with the change from non-professional to professional.}
 	
 	
 \end{enumerate}
@@ -211,24 +221,28 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 
 \vspace{.5cm}
 \begin{enumerate}
+	
+	\newpage
+	
 	\item [(a)] Use the results from a linear regression to determine whether having these yard signs in a precinct affects vote share (e.g., conduct a hypothesis test with $\alpha = .05$).
 	
 		\textsmaller[1]{$H_{0}$ : $\beta_{1}$ = 0, $H_{a}$ : $\beta_{1}$ \neq 0.}
 	
-		\lstinputlisting[language=R, firstline=78, lastline=82]{PS04_RL.R}
+		\lstinputlisting[language=R, firstline=80, lastline=88]{PS04_RL.R}
 	
-		\textsmaller[1]{We can reject the null hypothesis that having yard signs in a precinct does not effect vote share, due to the fact that the p-value is 0.013, which is smaller than the alpha value of 0.05, making the effect of 0.042 on vote share significant. }
+		\textsmaller[1]{We can reject the null hypothesis that having yard signs in a precinct does not effect vote share, meaning that the presence of yard signs does effect vote share. We can conclude this due to the fact that the p-value is 0.014, which is smaller than the alpha value of 0.05, making the effect of 0.042 on vote share significant.}
 	
-	\newpage		
+	\vspace{2cm}
+	
 	\item [(b)]  Use the results to determine whether being
 	next to precincts with these yard signs affects vote
 	share (e.g., conduct a hypothesis test with $\alpha = .05$).
 	
 		\textsmaller[1]{$H_{0}$ : $\beta_{2}$ = 0, $H_{a}$ : $\beta_{2}$ \neq 0.}
 		
-		\lstinputlisting[language=R, firstline=86, lastline=90]{PS04_RL.R}
+		\lstinputlisting[language=R, firstline=92, lastline=100]{PS04_RL.R}
 		
-		\textsmaller[1]{We can reject the null hypothesis that being next to precincts with yard signs does not effect vote share, due to the fact that the p-value is 0.002, which is smaller than the alpha value of 0.05, making the effect of 0.042 on vote share significant.}
+		\textsmaller[1]{We can reject the null hypothesis that being next to precincts with yard signs does not effect vote share, meaning that the presence of yard signs does effect vote share. We can conclude this due to the fact that the p-value is 0.002, which is smaller than the alpha value of 0.05, making the effect of 0.042 on vote share significant.}
 	
 	\vspace{2cm}
 	\item [(c)] Interpret the coefficient for the constant term substantively.
@@ -238,6 +252,10 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 	\vspace{2cm}
 	
 	\item [(d)] Evaluate the model fit for this regression.  What does this	tell us about the importance of yard signs versus other factors that are not modeled?
+	
+		\lstinputlisting[language=R, firstline=104, lastline=114]{PS04_RL.R}
+	
+		\textsmaller[1]{The p-value for the F-test evaluating this model was found to be 0.999, which indicates that the importance of yard signs is not significant in predicting vote share. This means that other factors may be more important in predicting vote share than the presence of yard signs.}
 	
 \end{enumerate}  
 
