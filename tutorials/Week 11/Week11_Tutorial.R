@@ -42,7 +42,7 @@ getwd()
 # What is the relationship between education and Euroscepticism?
 
 # Load data
-df <- read.csv("ess_euroscepticism.csv", row.names="X")
+df <- read.csv("../../datasets/ESS10.csv")
 View(df)
 
 # Convert into factor variable

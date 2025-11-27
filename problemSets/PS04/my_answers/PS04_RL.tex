@@ -160,7 +160,7 @@ help(Prestige)
 	\item [(e)]
 	Interpret the coefficient for \texttt{professional}.
 	
-		\textsmaller[1]{The coefficient for professional indicates that, on average, when income is 0, for a one unit increase in professional, there is a 37.781 increase in prestige. This can also be interpreted as, on average, when income is 0, moving from a blue or white color worker to a professional, results in a 37.781 increase in Pineo-Porter prestige score for occupation.}
+		\textsmaller[1]{The coefficient for professional indicates that, on average, when income is 0, for a one unit increase in professional, there is a 37.781 increase in prestige. This can also be interpreted as, on average, when income is 0, moving from a blue or white collar worker to a professional, results in a 37.781 increase in Pineo-Porter prestige score for occupation.}
 	
 	\newpage
 	\item [(f)]
@@ -172,7 +172,7 @@ help(Prestige)
 	
 	\lstinputlisting[language=R, firstline=64, lastline=66]{PS04_RL.R}
 	
-	\textsmaller[1]{The effect of a \$1,000 increase in income on prestige score for professional occupations is 1. This is an incredibly small effect on prestige score due to the small coefficient associated with a change in income.}
+	\textsmaller[1]{The marginal effect of a \$1,000 increase in income on prestige score for professional occupations is 1. This is an incredibly small effect on prestige score due to the small coefficient associated with a change in income, which is made even smaller due to the 0.002 decrease in income's effect on prestige score, caused by it's interaction with professional status when professional takes the value of 1.}
 	
 	\vspace{2cm}
 	
@@ -186,7 +186,7 @@ help(Prestige)
 	
 	\lstinputlisting[language=R, firstline=72, lastline=74]{PS04_RL.R}
 	
-	\textsmaller[1]{The effect of changing one's occupation from a non-professional to professional with an income of \$6,000 is a 25.781 increase in prestige score. Compared to a change in income, a change in professional status has a larger effect on prestige score due to the larger coefficient associated with the change from non-professional to professional.}
+	\textsmaller[1]{The effect of changing one's occupation from non-professional to professional with an income of \$6,000 is a 25.781 increase in prestige score. Compared to a change in income, a change in professional status has a larger effect on prestige score due to the larger average increase in prestige score associated with the change from non-professional to professional jobs. It is important to note that for professional jobs, there is a decrease in the positive effect of income on prestige score, which resulted in the subtraction of 12 points when the income value is \$6,000. }
 	
 	
 \end{enumerate}
@@ -226,7 +226,7 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 	
 	\item [(a)] Use the results from a linear regression to determine whether having these yard signs in a precinct affects vote share (e.g., conduct a hypothesis test with $\alpha = .05$).
 	
-		\textsmaller[1]{$H_{0}$ : $\beta_{1}$ = 0, $H_{a}$ : $\beta_{1}$ \neq 0.}
+		\textsmaller[1]{$H_{0}$ : $\beta_{1}$ = 0, $H_{a}$ : $\beta_{1}$ $\neq$ 0.}
 	
 		\lstinputlisting[language=R, firstline=80, lastline=88]{PS04_RL.R}
 	
@@ -238,24 +238,27 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 	next to precincts with these yard signs affects vote
 	share (e.g., conduct a hypothesis test with $\alpha = .05$).
 	
-		\textsmaller[1]{$H_{0}$ : $\beta_{2}$ = 0, $H_{a}$ : $\beta_{2}$ \neq 0.}
+		\textsmaller[1]{$H_{0}$ : $\beta_{2}$ = 0, $H_{a}$ : $\beta_{2}$ $\neq$ 0.}
 		
 		\lstinputlisting[language=R, firstline=92, lastline=100]{PS04_RL.R}
 		
 		\textsmaller[1]{We can reject the null hypothesis that being next to precincts with yard signs does not effect vote share, meaning that the presence of yard signs does effect vote share. We can conclude this due to the fact that the p-value is 0.002, which is smaller than the alpha value of 0.05, making the effect of 0.042 on vote share significant.}
 	
-	\vspace{2cm}
+	\newpage
+	
 	\item [(c)] Interpret the coefficient for the constant term substantively.
 	
-		\textsmaller[1]{When there are no lawn signs utilized, the vote share will be equal to 0.302.}
+		\textsmaller[1]{When there are no lawn signs present in treatment group precincts, and therefore no exposure to lawn signs for people in adjacent precincts, the vote share will be equal to 0.302.}
 	
 	\vspace{2cm}
 	
 	\item [(d)] Evaluate the model fit for this regression.  What does this	tell us about the importance of yard signs versus other factors that are not modeled?
 	
+		\textsmaller[1]{$H_{0}$: $\beta_{1}$ = $\beta_{2}$ = 0, $H_{a}$ : At least one $\beta$ $\neq$ 0.}
+	
 		\lstinputlisting[language=R, firstline=104, lastline=114]{PS04_RL.R}
 	
-		\textsmaller[1]{The p-value for the F-test evaluating this model was found to be 0.999, which indicates that the importance of yard signs is not significant in predicting vote share. This means that other factors may be more important in predicting vote share than the presence of yard signs.}
+		\textsmaller[1]{The p-value for the F-test evaluating this model was found to be 0.999, which indicates that the presence of yard signs is not significant in predicting vote share and that we cannot reject the null hypothesis that $\beta_{1}$ and $\beta_{2}$ are equal to 0. This means that other factors that are not modeled may be more important in predicting vote share than the presence of yard signs.}
 	
 \end{enumerate}  
 
