@@ -106,9 +106,10 @@ n <- 131
 # k = number of variables
 k <- 2
 # F statistic using the r_squared value
-F_test <- (r_squared/(k-1))/((1-r_squared)/(n-k))
+F_test <- (r_squared/k)/((1-r_squared)/(n-k-1))
 # F test requires 2 degrees of freedom
-df1 <- k-1
-df2 <- n-k 
+df1 <- k
+df2 <- n-k-1
 # Calculate p-value for test statistic
-F_pvalue <- pf(F_test, df1, df2)
+F_pvalue <- pf(F_test, df1, df2, lower.tail=FALSE)
+?pf

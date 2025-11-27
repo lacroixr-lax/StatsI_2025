@@ -226,6 +226,8 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 	
 	\item [(a)] Use the results from a linear regression to determine whether having these yard signs in a precinct affects vote share (e.g., conduct a hypothesis test with $\alpha = .05$).
 	
+		\textsmaller[1]{I will utilize a t-test to test the partial effect of having yard signs in a precinct on vote share.}
+	
 		\textsmaller[1]{$H_{0}$ : $\beta_{1}$ = 0, $H_{a}$ : $\beta_{1}$ $\neq$ 0.}
 	
 		\lstinputlisting[language=R, firstline=80, lastline=88]{PS04_RL.R}
@@ -237,6 +239,8 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 	\item [(b)]  Use the results to determine whether being
 	next to precincts with these yard signs affects vote
 	share (e.g., conduct a hypothesis test with $\alpha = .05$).
+	
+		\textsmaller[1]{I will utilize a t-test to test the partial effect of being next to a precinct with yard signs on vote share.}
 	
 		\textsmaller[1]{$H_{0}$ : $\beta_{2}$ = 0, $H_{a}$ : $\beta_{2}$ $\neq$ 0.}
 		
@@ -254,11 +258,17 @@ a precinct that was adjacent to a precinct in the treatment group (since people 
 	
 	\item [(d)] Evaluate the model fit for this regression.  What does this	tell us about the importance of yard signs versus other factors that are not modeled?
 	
+		\textsmaller[1]{I will utilize a global F-test to evaluate whether or not the model containing the effects of yard signs in and next to a precinct is useful in explaining variation in vote share. This will test the full model, containing the two explanatory variables for presence of yard signs, against a reduced model containing only the constant.}
+		
+		\textsmaller[1]{Reduced model: Y = $\beta_{0}$ + $\epsilon$}
+		
+		\textsmaller[1]{Full model: Y = $\beta_{0}$ + $\beta_{1}$$X_{1}$ + $\beta_{2}$$X_{2}$ + $\epsilon$}
+	
 		\textsmaller[1]{$H_{0}$: $\beta_{1}$ = $\beta_{2}$ = 0, $H_{a}$ : At least one $\beta$ $\neq$ 0.}
 	
 		\lstinputlisting[language=R, firstline=104, lastline=114]{PS04_RL.R}
 	
-		\textsmaller[1]{The p-value for the F-test evaluating this model was found to be 0.999, which indicates that the presence of yard signs is not significant in predicting vote share and that we cannot reject the null hypothesis that $\beta_{1}$ and $\beta_{2}$ are equal to 0. This means that other factors that are not modeled may be more important in predicting vote share than the presence of yard signs.}
+		\textsmaller[1]{The p-value for the F-test evaluating this model was found to be 0.0018, with a test statistic of 6.64, which indicates that we can reject the null hypothesis that both $\beta_{1}$ and $\beta_{2}$ are equal to 0. Rejecting the null hypothesis means that either the presence of yard signs in a precinct and/or in an adjacent precinct is not 0 and is therefore significant in predicting vote share. This means that other factors that are not modeled may not be more important in predicting vote share than the presence of yard signs and that the proposed full model is sufficient in predicting vote share.}
 	
 \end{enumerate}  
 
